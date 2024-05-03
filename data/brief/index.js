@@ -9,8 +9,8 @@ const getAllBrief = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const briefs = await pool.request().query(sqlQueries.briefs);
-        console.log(briefs);
-        return "Success : " + briefs.recordset;
+        // console.log(briefs);
+        return briefs.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -21,8 +21,8 @@ const getBriefPoint = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const briefPoint = await pool.request().query(sqlQueries.brief_point);
-        console.log(briefPoint);
-        return "Success : " + briefPoint.recordset;
+        // console.log(briefPoint);
+        return briefPoint.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -32,8 +32,8 @@ const getAllAsset = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const assets = await pool.request().query(sqlQueries.assets);
-        console.log(assets);
-        return "Success : " + assets.recordset;
+        // console.log(assets);
+        return assets.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -43,10 +43,10 @@ const getAllAppraisalPlan = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalPlans = await pool.request().query(sqlQueries.appraisal_plans);
-        console.log(appraisalPlans);
-        return "Success : " + appraisalPlans.recordset;
+        // console.log(appraisalPlans);
+        return appraisalPlans.recordset;
     } catch (err) {
-        console.log("Error: ", err);
+        consoe.log("Error: ", err);
     };
 }
 const getAllAppraisalPlanDetail = async () => {
@@ -54,8 +54,8 @@ const getAllAppraisalPlanDetail = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalPlanDetail = await pool.request().query(sqlQueries.appraisal_plans_detail);
-        console.log(appraisalPlanDetail);
-        return "Success : " + appraisalPlanDetail.recordset;
+        // console.log(appraisalPlanDetail);
+        return appraisalPlanDetail.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -65,8 +65,8 @@ const getAllAppraisalDocumentDetail = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalDocumentDetail = await pool.request().query(sqlQueries.appraisal_documents_detail);
-        console.log(68, appraisalDocumentDetail);
-        return "Success : " + appraisalDocumentDetail.recordset;
+        // console.log(68, appraisalDocumentDetail);
+        return appraisalDocumentDetail.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };

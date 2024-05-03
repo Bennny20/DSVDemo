@@ -44,7 +44,7 @@ const getVocatives = async () => {
         const sqlQueries = await utils.loadSqlQueries('categories');
         const vocatives = await pool.request().query(sqlQueries.vocatives);
         console.log(vocatives);
-        return "Success : " + vocatives.recordset;
+        return vocatives.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -55,7 +55,7 @@ const getEmployeePositions = async () => {
         const sqlQueries = await utils.loadSqlQueries('categories');
         const employeePositions = await pool.request().query(sqlQueries.employee_positions);
         console.log(employeePositions);
-        return "Success : " + employeePositions.recordset;
+        return employeePositions.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
