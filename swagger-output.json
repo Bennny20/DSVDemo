@@ -8,8 +8,8 @@
   "host": "dsvdemo.onrender.com/api",
   "basePath": "/",
   "schemes": [
-    "http",
-    "https"
+    "https",
+    "http"
   ],
   "consumes": [
     "application/json"
@@ -17,9 +17,37 @@
   "produces": [
     "application/json"
   ],
+  "server": [
+    {
+      "url": "https://dsvdemo.onrender.com/api",
+      "description": "Server for development environment"
+    }
+  ],
+  "tag": [
+    {
+      "name": "User",
+      "description": ""
+    },
+    {
+      "name": "Appraisal",
+      "description": ""
+    },
+    {
+      "name": "Asset",
+      "description": ""
+    },
+    {
+      "name": "Brief",
+      "description": ""
+    }
+  ],
   "paths": {
     "/user/employees": {
       "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all employees",
         "description": "Xem danh sách nhân viên có tại hệ thống.",
         "responses": {
           "200": {
@@ -33,6 +61,10 @@
     },
     "/user/customers": {
       "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all customers",
         "description": "",
         "responses": {
           "200": {
@@ -46,6 +78,10 @@
     },
     "/user/brokers": {
       "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all broker",
         "description": "",
         "responses": {
           "200": {
@@ -59,6 +95,10 @@
     },
     "/briefs_point": {
       "get": {
+        "tags": [
+          "Brief"
+        ],
+        "summary": "Get all brief have value point",
         "description": "",
         "responses": {
           "200": {
@@ -72,6 +112,10 @@
     },
     "/briefs": {
       "get": {
+        "tags": [
+          "Brief"
+        ],
+        "summary": "Get all brief",
         "description": "",
         "responses": {
           "200": {
@@ -85,6 +129,10 @@
     },
     "/assets": {
       "get": {
+        "tags": [
+          "Asset"
+        ],
+        "summary": "Get all asset",
         "description": "",
         "responses": {
           "200": {
@@ -98,6 +146,10 @@
     },
     "/appraisal_plans": {
       "get": {
+        "tags": [
+          "Appraisal"
+        ],
+        "summary": "Get all appraisal plans",
         "description": "",
         "responses": {
           "200": {
@@ -111,6 +163,10 @@
     },
     "/appraisal_plans_detail": {
       "get": {
+        "tags": [
+          "Appraisal"
+        ],
+        "summary": "Get all appraisal plans detail",
         "description": "",
         "responses": {
           "200": {
@@ -122,8 +178,12 @@
         }
       }
     },
-    "/appraisal_documents_etail": {
+    "/appraisal_documents_detail": {
       "get": {
+        "tags": [
+          "Appraisal"
+        ],
+        "summary": "Get all documents detail",
         "description": "",
         "responses": {
           "200": {
@@ -137,6 +197,10 @@
     },
     "/appraisal_plan_types": {
       "get": {
+        "tags": [
+          "Appraisal"
+        ],
+        "summary": "Get all appraisal plan types",
         "description": "",
         "responses": {
           "200": {
@@ -150,6 +214,10 @@
     },
     "/user/customer_types": {
       "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all customer types",
         "description": "",
         "responses": {
           "200": {
@@ -163,6 +231,10 @@
     },
     "/asset_types": {
       "get": {
+        "tags": [
+          "Asset"
+        ],
+        "summary": "Get all asset types",
         "description": "",
         "responses": {
           "200": {
@@ -176,6 +248,10 @@
     },
     "/user/vocatives": {
       "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all user vocatives",
         "description": "",
         "responses": {
           "200": {
@@ -189,6 +265,10 @@
     },
     "/user/employee_positions": {
       "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Get all employee positions",
         "description": "",
         "responses": {
           "200": {

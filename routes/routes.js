@@ -31,7 +31,7 @@ router.get('/briefs', getAllBrief);
 router.get('/assets', getAllAsset);
 router.get('/appraisal_plans', getAllAppraisalPlan);
 router.get('/appraisal_plans_detail', getAllAppraisalPlanDetail);
-router.get('/appraisal_documents_etail', getAllAppraisalDocumentDetail);
+router.get('/appraisal_documents_detail', getAllAppraisalDocumentDetail);
 //------------ API CATEGORIES ------------
 const categorieController = require('../controllers/categories_controller');
 const { getAllAppraisalPlanTypes,
