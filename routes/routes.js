@@ -4,7 +4,6 @@ const express = require('express');
 const router = express.Router();
 
 // router.post('/signup', userControll.addUser);
-// router.post('/login', userControll.logIn);
 // router.put('/update/:id', userControll.updateUserInfo);
 
 //------------ API USER ------------
@@ -12,6 +11,8 @@ const userControll = require('../controllers/users_controller');
 const { getAllEmployees,
     getAllCustomers,
     getAllBrokers } = userControll;
+
+router.post('/auth/login', userControll.login);
 
 router.get('/user/employees', getAllEmployees);   // Get all employees from the database and return them as a response to an HTTP request
 router.get('/user/customers', getAllCustomers);
@@ -26,8 +27,8 @@ const { getBriefPoint,
     getAllAppraisalDocumentDetail,
     getAllAppraisalPlanDetail } = briefControll;
 
-router.get('/briefs_point', getBriefPoint);
-router.get('/briefs', getAllBrief);
+router.get('/brief/briefs_point', getBriefPoint);
+router.get('/brief/briefs', getAllBrief);
 router.get('/assets', getAllAsset);
 router.get('/appraisal_plans', getAllAppraisalPlan);
 router.get('/appraisal_plans_detail', getAllAppraisalPlanDetail);
