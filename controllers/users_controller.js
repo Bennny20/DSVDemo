@@ -4,10 +4,11 @@ const userData = require('../data/users');
 
 const login = async (req, res) => {
     try {
-        const userName = req.body.username;
-        const passWord = req.body.passWord;
-        if (!userName || !passWord) return res.status(400).send({ code: -1, message: "Vui lòng hãy nhập ký tự. Không đươc bỏ trống" });
-        const user = await userData.login(userName, passWord);
+        const username = req.body.username;
+        const password = req.body.password;
+        console.log(username + password)
+        if (!username || !password) return res.status(400).send({ code: -1, message: "Vui lòng hãy nhập ký tự. Không đươc bỏ trống" });
+        const user = await userData.login(username, password);
         if (user[0][0].outputNumber == 0) res.status(200).json(user[3][0]);
         else return res.status(404).json({ code: user[0][0].outputNumber, message: user[0][0].outputResult });
     } catch (err) {
@@ -18,8 +19,11 @@ const login = async (req, res) => {
 
 const getAllEmployees = async (req, res) => {
     try {
-        const employees = await userData.getAllEmployees();
-        res.status(200).json(employees);
+        const employee_code = req.param("employee_code");
+        let data;
+        if (employee_code != undefined) data = await userData.getAllEmployeeByCode(employee_code)
+        else data = await userData.getAllEmployees();
+        res.status(200).json(data);
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: err });

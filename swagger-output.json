@@ -71,7 +71,7 @@
             "description": "Nhập username vs password được rồi.",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Login"
             }
           }
         ],
@@ -91,7 +91,28 @@
           "User"
         ],
         "summary": "Get all employees",
-        "description": "Xem danh sách nhân viên có tại hệ thống.",
+        "description": "Xem danh sách nhân viên có tại hệ thống có thể dùng cho chức năng tìm theo id.",
+        "operationId": "findAllEmployees",
+        "parameters": [
+          {
+            "name": "employee_code",
+            "in": "query",
+            "description": "ID của nhân viên, có thể bỏ trống sẽ là get all.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Page number for pagination. The page number starts from 1.",
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The size of a page. If not provided, default value is  10.",
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -324,28 +345,37 @@
       }
     }
   },
-  "definitions": [
-    {
-      "User": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer"
-          },
-          "firstName": {
-            "type": "string"
-          },
-          "lastName": {
-            "type": "string"
-          },
-          "userName": {
-            "type": "string"
-          },
-          "passWord": {
-            "type": "string"
-          }
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "userName": {
+          "type": "string"
+        },
+        "passWord": {
+          "type": "string"
+        }
+      }
+    },
+    "Login": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
         }
       }
     }
-  ]
+  }
 }
