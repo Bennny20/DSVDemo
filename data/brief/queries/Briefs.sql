@@ -1,13 +1,13 @@
 SELECT
-    dbo.HoSoThamDinh.ma_ho_so AS [Mã hồ sơ],
-    dbo.HoSoThamDinh.mo_ta AS [Mô tả],
-    dbo.HoSoThamDinh.muc_dich_tham_dinh AS [Mục đích thẩm định],
-    dbo.HoSoThamDinh.thoi_gian_tham_dinh AS [Thời gian thẩm định],
-    dbo.Employees.employees_name AS [Người duyệt],
-    Employees_1.employees_name AS [Người tiếp nhận],
-    dbo.HoSoThamDinh.create_date AS [Ngày tạo],
-    dbo.HoSoThamDinh.da_duyet AS [Đã duyệt],
-    dbo.HoSoThamDinh.do_uu_tien_ho_so AS [Độ ưu tiên]
+    dbo.HoSoThamDinh.ma_ho_so,
+    dbo.HoSoThamDinh.mo_ta,
+    dbo.HoSoThamDinh.muc_dich_tham_dinh,
+    dbo.HoSoThamDinh.thoi_gian_tham_dinh,
+    dbo.Employees.employees_name,
+    Employees_1.employees_name,
+    dbo.HoSoThamDinh.create_date,
+    dbo.HoSoThamDinh.da_duyet,
+    dbo.HoSoThamDinh.do_uu_tien_ho_so
 FROM
     dbo.HoSoThamDinh
     INNER JOIN dbo.Employees ON dbo.HoSoThamDinh.nguoi_duyet = dbo.Employees.employees_code

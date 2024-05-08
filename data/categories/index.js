@@ -10,7 +10,7 @@ const getAppraisalPlanType = async () => {
         const sqlQueries = await utils.loadSqlQueries('categories');
         const appraisalPlanTypes = await pool.request().query(sqlQueries.appraisal_plan_types);
         console.log(appraisalPlanTypes);
-        return "Success : " + appraisalPlanTypes.recordset;
+        return appraisalPlanTypes.recordsets;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -21,7 +21,7 @@ const getCustomerTypes = async () => {
         const sqlQueries = await utils.loadSqlQueries('categories');
         const customerTypes = await pool.request().query(sqlQueries.customer_types);
         console.log(customerTypes);
-        return "Success : " + customerTypes.recordset;
+        return customerTypes.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -32,7 +32,7 @@ const getAssetTypes = async () => {
         const sqlQueries = await utils.loadSqlQueries('categories');
         const assetTypes = await pool.request().query(sqlQueries.asset_types);
         console.log(assetTypes);
-        return "Success : " + assetTypes.recordset;
+        return assetTypes.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };

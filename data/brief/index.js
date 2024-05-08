@@ -10,7 +10,7 @@ const getAllBrief = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const briefs = await pool.request().query(sqlQueries.briefs);
         // console.log(briefs);
-        return briefs.recordset;
+        return briefs.recordsets;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -22,7 +22,7 @@ const getBriefPoint = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const briefPoint = await pool.request().query(sqlQueries.brief_point);
         // console.log(briefPoint);
-        return briefPoint.recordset;
+        return briefPoint.recordsets;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -33,7 +33,7 @@ const getAllAsset = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const assets = await pool.request().query(sqlQueries.assets);
         // console.log(assets);
-        return assets.recordset;
+        return assets.recordsets;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -44,7 +44,7 @@ const getAllAppraisalPlan = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalPlans = await pool.request().query(sqlQueries.appraisal_plans);
         // console.log(appraisalPlans);
-        return appraisalPlans.recordset;
+        return appraisalPlans.recordsets;
     } catch (err) {
         consoe.log("Error: ", err);
     };
@@ -55,7 +55,7 @@ const getAllAppraisalPlanDetail = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalPlanDetail = await pool.request().query(sqlQueries.appraisal_plans_detail);
         // console.log(appraisalPlanDetail);
-        return appraisalPlanDetail.recordset;
+        return appraisalPlanDetail.recordsets;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -66,7 +66,7 @@ const getAllAppraisalDocumentDetail = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalDocumentDetail = await pool.request().query(sqlQueries.appraisal_documents_detail);
         // console.log(68, appraisalDocumentDetail);
-        return appraisalDocumentDetail.recordset;
+        return appraisalDocumentDetail.recordsets;
     } catch (err) {
         console.log("Error: ", err);
     };

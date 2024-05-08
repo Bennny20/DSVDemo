@@ -5,11 +5,11 @@
     "title": "DSV Software API",
     "description": "How does human communication happen? People can express thoughts, needs, and ideas through language (written and spoken), gestures, or facial expressions, right? At the same time, our interaction with computers, apps, and websites requires user interface (UI) components – a screen with a menu and graphical elements, a keyboard, and a mouse. Software or its elements, on the other hand, don’t need a graphical user interface to talk to each other. To communicate and exchange data and functionalities, programs use machine-readable interfaces called APIs. If you ever read tech magazines or blogs, you’ve probably seen the abbreviation API. It sounds solid, but what does it stand for? API stands for Application Programming Interface. This post will explain what APIs are, how they work, and why you should care about them in the first place."
   },
-  "host": "dsvdemo.onrender.com/api",
+  "host": "localhost:8081/api",
   "basePath": "/",
   "schemes": [
-    "https",
-    "http"
+    "http",
+    "https"
   ],
   "consumes": [
     "application/json"
@@ -21,28 +21,32 @@
     {
       "url": "https://dsvdemo.onrender.com/api",
       "description": "Server for development environment"
+    },
+    {
+      "url": "https://localhost:8081/api",
+      "description": "Server for local environment"
     }
   ],
   "tag": [
     {
       "name": "Auth",
-      "description": ""
+      "description": "Liên quan đến các vấn đề của tài khoản cá nhân hiện đang thực hiện."
     },
     {
       "name": "User",
-      "description": ""
+      "description": "Liên quan đến cái vai trò của tài khoản, con người,.."
     },
     {
       "name": "Appraisal",
-      "description": ""
+      "description": "Các thông tin tổng hợp về việc thẩm định."
     },
     {
       "name": "Asset",
-      "description": ""
+      "description": "Dữ liệu về các tài sản đang được lưu trữ thông tin tại hệ thống."
     },
     {
       "name": "Brief",
-      "description": ""
+      "description": "Các thông tin về hồ sơ, bao gồm các mục tiêu chí tính điểm."
     }
   ],
   "paths": {
@@ -132,7 +136,7 @@
         }
       }
     },
-    "/briefs_point": {
+    "/brief/briefs_point": {
       "get": {
         "tags": [
           "Brief"
@@ -149,7 +153,7 @@
         }
       }
     },
-    "/briefs": {
+    "/brief/briefs": {
       "get": {
         "tags": [
           "Brief"
@@ -320,26 +324,28 @@
       }
     }
   },
-  "definitions": {
-    "User": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "firstName": {
-          "type": "string"
-        },
-        "lastName": {
-          "type": "string"
-        },
-        "userName": {
-          "type": "string"
-        },
-        "passWord": {
-          "type": "string"
+  "definitions": [
+    {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "string"
+          },
+          "lastName": {
+            "type": "string"
+          },
+          "userName": {
+            "type": "string"
+          },
+          "passWord": {
+            "type": "string"
+          }
         }
       }
     }
-  }
+  ]
 }
