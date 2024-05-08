@@ -32,8 +32,12 @@ const getAllEmployees = async (req, res) => {
 
 const getAllCustomers = async (req, res) => {
     try {
-        const customers = await userData.getAllCustomers();
-        res.status(200).json(customers);
+        const customer_code = req.param("customer_code");
+        console.log(36, customer_code)
+        let data;
+        if (customer_code != undefined) data = await userData.getCustomerByCode(customer_code)
+        else data = await userData.getAllCustomers();
+        res.status(200).json(data);
     } catch (err) {
         console.log(err);
         res.status(500).json({ error: err });

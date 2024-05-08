@@ -53,6 +53,19 @@ const getAllCustomers = async () => {
     };
 }
 
+const getCustomerByCode = async (input) => {
+    try {
+        const pool = await sql.connect(config.sql);
+        const sqlQueries = await utils.loadSqlQueries('users');
+        const userList = await pool.request()
+            .input("input", input)
+            .query(sqlQueries.customer_by_code);
+        return userList.recordset;
+    } catch (err) {
+        console.log("Error: ", err);
+    };
+}
+
 const getAllBrokers = async () => {
     try {
         const pool = await sql.connect(config.sql);
@@ -69,5 +82,6 @@ module.exports = {
     getAllEmployees,
     getEmployeeByCode,
     getAllCustomers,
-    getAllBrokers
+    getAllBrokers,
+    getCustomerByCode
 }
