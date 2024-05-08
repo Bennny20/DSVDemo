@@ -10,4 +10,4 @@ SELECT
     [nguoi_them],
     [create_date]
 FROM
-    [DSGAppraisalSoftwareX].[dbo].[TaiSan]
+    [DSGAppraisalSoftwareX].[dbo].[TaiSan];

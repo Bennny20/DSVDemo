@@ -10,7 +10,7 @@ const getAllBrief = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const briefs = await pool.request().query(sqlQueries.briefs);
         // console.log(briefs);
-        return briefs.recordsets;
+        return briefs.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -22,7 +22,7 @@ const getBriefPoint = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const briefPoint = await pool.request().query(sqlQueries.brief_point);
         // console.log(briefPoint);
-        return briefPoint.recordsets;
+        return briefPoint.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -32,8 +32,8 @@ const getAllAsset = async () => {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries('brief');
         const assets = await pool.request().query(sqlQueries.assets);
-        // console.log(assets);
-        return assets.recordsets;
+        console.log(assets);
+        return assets.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -44,7 +44,7 @@ const getAllAppraisalPlan = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalPlans = await pool.request().query(sqlQueries.appraisal_plans);
         // console.log(appraisalPlans);
-        return appraisalPlans.recordsets;
+        return appraisalPlans.recordset;
     } catch (err) {
         consoe.log("Error: ", err);
     };
@@ -55,7 +55,7 @@ const getAllAppraisalPlanDetail = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalPlanDetail = await pool.request().query(sqlQueries.appraisal_plans_detail);
         // console.log(appraisalPlanDetail);
-        return appraisalPlanDetail.recordsets;
+        return appraisalPlanDetail.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
@@ -66,7 +66,7 @@ const getAllAppraisalDocumentDetail = async () => {
         const sqlQueries = await utils.loadSqlQueries('brief');
         const appraisalDocumentDetail = await pool.request().query(sqlQueries.appraisal_documents_detail);
         // console.log(68, appraisalDocumentDetail);
-        return appraisalDocumentDetail.recordsets;
+        return appraisalDocumentDetail.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };

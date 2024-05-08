@@ -10,7 +10,7 @@ const getAppraisalPlanType = async () => {
         const sqlQueries = await utils.loadSqlQueries('categories');
         const appraisalPlanTypes = await pool.request().query(sqlQueries.appraisal_plan_types);
         console.log(appraisalPlanTypes);
-        return appraisalPlanTypes.recordsets;
+        return appraisalPlanTypes.recordset;
     } catch (err) {
         console.log("Error: ", err);
     };
