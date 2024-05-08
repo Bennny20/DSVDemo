@@ -90,26 +90,28 @@
         "tags": [
           "User"
         ],
-        "summary": "Get all employees",
-        "description": "Xem danh sách nhân viên có tại hệ thống có thể dùng cho chức năng tìm theo id.",
+        "summary": "Danh sách nhân viên",
+        "description": "Xem danh sách nhân viên có tại hệ thống có thể dùng cho chức năng tìm theo mã nhân viên.",
         "operationId": "findAllEmployees",
         "parameters": [
           {
             "name": "employee_code",
             "in": "query",
-            "description": "ID của nhân viên, có thể bỏ trống sẽ là get all.",
+            "description": "Mã của nhân viên, có thể bỏ trống sẽ là lấy tất cả.",
             "type": "string"
           },
           {
             "name": "pageNumber",
             "in": "query",
-            "description": "Page number for pagination. The page number starts from 1.",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
             "type": "integer"
           },
           {
             "name": "pageSize",
             "in": "query",
-            "description": "The size of a page. If not provided, default value is  10.",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
             "type": "integer"
           }
         ],
@@ -128,8 +130,30 @@
         "tags": [
           "User"
         ],
-        "summary": "Get all customers",
-        "description": "",
+        "summary": "Danh sách khách hàng",
+        "description": "Xem danh sách nhân viên có tại hệ thống có thể dùng cho chức năng tìm theo mã khách hàng.",
+        "parameters": [
+          {
+            "name": "customer_code",
+            "in": "query",
+            "description": "Mã của khách hàng, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -145,8 +169,30 @@
         "tags": [
           "User"
         ],
-        "summary": "Get all broker",
-        "description": "",
+        "summary": "Danh sách người môi giới",
+        "description": "Xem danh sách người môi giới có tại hệ thống có thể dùng cho chức năng tìm theo mã người môi giới.",
+        "parameters": [
+          {
+            "name": "broker_code",
+            "in": "query",
+            "description": "Mã của người môi giới, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
