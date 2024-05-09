@@ -41,6 +41,10 @@
       "description": "Các thông tin tổng hợp về việc thẩm định."
     },
     {
+      "name": "Priority Level",
+      "description": "Liên quan đến các vấn đề quản lý của độ ưu tiên."
+    },
+    {
       "name": "Asset",
       "description": "Dữ liệu về các tài sản đang được lưu trữ thông tin tại hệ thống."
     },
@@ -271,6 +275,45 @@
             "name": "asset_code",
             "in": "query",
             "description": "Mã của tài sản, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/priority_levels": {
+      "get": {
+        "tags": [
+          "Priority Level"
+        ],
+        "summary": "Danh sách độ ưu tiên",
+        "description": "Xem danh sách độ ưu tiên có tại hệ thống có thể dùng cho chức năng tìm theo mã độ ưu tiên.",
+        "parameters": [
+          {
+            "name": "priority_level_code",
+            "in": "query",
+            "description": "Mã của độ ưu tiên, có thể bỏ trống sẽ là lấy tất cả.",
             "type": "string"
           },
           {

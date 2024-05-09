@@ -46,6 +46,13 @@ router.get('/user/customer_types', getAllCustomerTypes);
 router.get('/asset_types', getAllAssetTypes);
 router.get('/user/vocatives', getAllVocatives);
 router.get('/user/employee_positions', getAllEmployeePositions);
+//------------ API Priority Level ------------
+const priorityLevelController = require('../controllers/priority_level_controller');
+const {
+    getAllProrityLevel
+} = priorityLevelController;
+
+router.get('/priority_levels', getAllProrityLevel);
 //-------------------
 module.exports = {
     router: router
