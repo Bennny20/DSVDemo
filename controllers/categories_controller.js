@@ -5,7 +5,6 @@ const categorieData = require("../data/categories");
 const getAllAppraisalPlanTypes = async (req, res) => {
   try {
     const appraisal_plan_type_code = req.param("appraisal_plan_type_code");
-    console.log(8, appraisal_plan_type_code);
     let data;
     if (appraisal_plan_type_code != undefined)
       data = await categorieData.getAppraisalPlanTypeByCode(
@@ -22,7 +21,6 @@ const getAllAppraisalPlanTypes = async (req, res) => {
 const getAllCustomerTypes = async (req, res) => {
   try {
     const customer_type_code = req.param("customer_type_code");
-    console.log(25, customer_type_code);
     let data;
     if (customer_type_code != undefined)
       data = await categorieData.getCustomerTypeByCode(customer_type_code);
@@ -36,7 +34,6 @@ const getAllCustomerTypes = async (req, res) => {
 const getAllAssetTypes = async (req, res) => {
   try {
     const asset_type_code = req.param("asset_type_code");
-    console.log(39, asset_type_code);
     let data;
     if (asset_type_code != undefined)
       data = await categorieData.getAssetTypeByCode(asset_type_code);
@@ -51,7 +48,6 @@ const getAllAssetTypes = async (req, res) => {
 const getAllVocatives = async (req, res) => {
   try {
     const vocative_code = req.param("vocative_code");
-    console.log(54, vocative_code);
     let data;
     if (vocative_code != undefined)
       data = await categorieData.getVocativeByCode(vocative_code);
@@ -66,7 +62,6 @@ const getAllVocatives = async (req, res) => {
 const getAllEmployeePositions = async (req, res) => {
   try {
     const employee_position_code = req.param("employee_position_code");
-    console.log(69, employee_position_code);
     let data;
     if (employee_position_code != undefined)
       data = await categorieData.getEmployeePositionByCode(

@@ -7,5 +7,5 @@ SELECT
     [create_date]
 FROM
     [DSGAppraisalSoftwareX].[dbo].[Vocative]
-WHERE 
-    [vocative_code] = 'VC001';
+WHERE
+    [vocative_code] = @input;

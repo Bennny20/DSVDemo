@@ -12,19 +12,9 @@ const getBriefPoint = async (req, res) => {
   }
 };
 
-// const getAllBrief = async (req, res) => {
-//     try {
-//         const briefs = await briefData.getAllBrief();
-//         res.status(200).json(briefs);
-//     } catch (err) {
-//         console.log(err);
-//         res.status(500).json({ error: err });
-//     }
-// };
 const getAllBrief = async (req, res) => {
   try {
     const brief_code = req.param("brief_code");
-    console.log(27, brief_code);
     let data;
     if (brief_code != undefined)
       data = await briefData.getBriefByCode(brief_code);
@@ -39,7 +29,6 @@ const getAllBrief = async (req, res) => {
 const getAllAsset = async (req, res) => {
   try {
     const asset_code = req.param("asset_code");
-    console.log(42, asset_code);
     let data;
     if (asset_code != undefined)
       data = await briefData.getAssetByCode(asset_code);
@@ -54,7 +43,6 @@ const getAllAsset = async (req, res) => {
 const getAllAppraisalPlan = async (req, res) => {
   try {
     const appraisal_plan_code = req.param("appraisal_plan_code");
-    console.log(57, appraisal_plan_code);
     let data;
     if (appraisal_plan_code != undefined)
       data = await briefData.getAppraisalPlanByCode(appraisal_plan_code);
@@ -68,10 +56,7 @@ const getAllAppraisalPlan = async (req, res) => {
 
 const getAllAppraisalDocumentDetail = async (req, res) => {
   try {
-    const appraisal_documents_detail_code = req.param(
-      "appraisal_documents_detail_code"
-    );
-    console.log(74, appraisal_documents_detail_code);
+    const appraisal_documents_detail_code = req.param("appraisal_documents_detail_code");
     let data;
     if (appraisal_documents_detail_code != undefined)
       data = await briefData.getAppraisalDocumentDetailByCode(
@@ -89,7 +74,6 @@ const getAllAppraisalDocumentDetail = async (req, res) => {
 const getAllAppraisalPlanDetail = async (req, res) => {
   try {
     const appraisal_plan_detail_code = req.param("appraisal_plan_detail_code");
-    console.log(92, appraisal_plan_detail_code);
     let data;
     if (appraisal_plan_detail_code != undefined)
       data = await briefData.getAppraisalPlanDetailByCode(

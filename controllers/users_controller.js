@@ -6,7 +6,6 @@ const login = async (req, res) => {
   try {
     const username = req.body.username;
     const password = req.body.password;
-    console.log(username + password);
     if (!username || !password)
       return res
         .status(400)
@@ -34,7 +33,7 @@ const getAllEmployees = async (req, res) => {
     const employee_code = req.param("employee_code");
     let data;
     if (employee_code != undefined)
-      data = await userData.getAllEmployeeByCode(employee_code);
+      data = await userData.getEmployeeByCode(employee_code);
     else data = await userData.getAllEmployees();
     res.status(200).json(data);
   } catch (err) {
@@ -46,7 +45,6 @@ const getAllEmployees = async (req, res) => {
 const getAllCustomers = async (req, res) => {
   try {
     const customer_code = req.param("customer_code");
-    console.log(49, customer_code);
     let data;
     if (customer_code != undefined)
       data = await userData.getCustomerByCode(customer_code);
@@ -61,7 +59,6 @@ const getAllCustomers = async (req, res) => {
 const getAllBrokers = async (req, res) => {
   try {
     const broker_code = req.param("broker_code");
-    console.log(64, broker_code);
     let data;
     if (broker_code != undefined)
       data = await userData.getBrokersByCode(broker_code);
