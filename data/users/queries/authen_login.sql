@@ -5,14 +5,14 @@ DECLARE @return_value int,
 @outputNumber = @outputNumber OUTPUT,
 @outputResult = @outputResult OUTPUT
 SELECT
-    @outputNumber as N 'outputNumber',
+    @outputNumber as N'outputNumber',
     @outputResult as N'outputResult';
 
 SELECT
     'Return Value' = @return_value;
 
 SELECT
-    @outputNumber as N 'outputNumber',
+    @outputNumber as N'outputNumber',
     @outputResult as N'outputResult';
 
 SELECT
