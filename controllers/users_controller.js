@@ -7,21 +7,17 @@ const login = async (req, res) => {
     const username = req.body.username;
     const password = req.body.password;
     if (!username || !password)
-      return res
-        .status(400)
-        .send({
-          code: -1,
-          message: "Vui lòng hãy nhập ký tự. Không đươc bỏ trống",
-        });
+      return res.status(400).send({
+        code: -1,
+        message: "Vui lòng hãy nhập ký tự. Không đươc bỏ trống",
+      });
     const user = await userData.login(username, password);
     if (user[0][0].outputNumber == 0) res.status(200).json(user[3][0]);
     else
-      return res
-        .status(404)
-        .json({
-          code: user[0][0].outputNumber,
-          message: user[0][0].outputResult,
-        });
+      return res.status(404).json({
+        code: user[0][0].outputNumber,
+        message: user[0][0].outputResult,
+      });
   } catch (err) {
     console.log(err);
     res.status(500).json({ error: err });

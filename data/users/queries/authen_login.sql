@@ -45,4 +45,4 @@ FROM
     LEFT JOIN [DSGAppraisalSoftwareX].[dbo].[Employees] AS Self_1 ON [DSGAppraisalSoftwareX].[dbo].[UserLogin].[ma_nhan_vien] = Self_1.[employees_code]
     LEFT JOIN [DSGAppraisalSoftwareX].[dbo].[Employees] AS Employees_1 ON [DSGAppraisalSoftwareX].[dbo].[UserLogin].[nguoi_them] = Employees_1.[employees_code]
 WHERE
-    a.username = @outputResult;
+    [dbo].[UserLogin].username = @outputResult;
