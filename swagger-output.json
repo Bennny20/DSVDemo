@@ -51,6 +51,10 @@
     {
       "name": "Brief",
       "description": "Các thông tin về hồ sơ, bao gồm các mục tiêu chí tính điểm."
+    },
+    {
+      "name": "File",
+      "description": "Các thông tin dạng tệp tài liệu."
     }
   ],
   "paths": {
@@ -117,6 +121,74 @@
             "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
             "default": 20,
             "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/files": {
+      "get": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Danh sách tệp tài liệu",
+        "description": "Xem danh sách tệp tài liệu có tại hệ thống có thể dùng cho chức năng tìm theo mã tài liệu.",
+        "operationId": "findAllFile",
+        "parameters": [
+          {
+            "name": "file_code",
+            "in": "query",
+            "description": "Mã của tài liệu, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/upload": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Thêm mới tệp tài liệu",
+        "description": "Thêm mới tệp tài liệu tại hệ thống .",
+        "consumes":[
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "filename",
+            "in": "formData",
+            "description": "File.",
+            "type": "file"
           }
         ],
         "responses": {

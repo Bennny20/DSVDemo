@@ -7,7 +7,7 @@ const sql = require("mssql");
 const getAllBrief = async () => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const briefs = await pool.request().query(sqlQueries.briefs);
     // console.log(briefs);
     return briefs.recordset;
@@ -19,7 +19,7 @@ const getAllBrief = async () => {
 const getBriefByCode = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const briefs = await pool
       .request()
       .input("input", input)
@@ -33,7 +33,7 @@ const getBriefByCode = async (input) => {
 const getBriefPoint = async () => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const briefPoint = await pool.request().query(sqlQueries.brief_point);
     // console.log(briefPoint);
     return briefPoint.recordset;
@@ -45,7 +45,7 @@ const getBriefPoint = async () => {
 const getAllAsset = async () => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const assets = await pool.request().query(sqlQueries.assets);
     console.log(assets);
     return assets.recordset;
@@ -57,7 +57,7 @@ const getAllAsset = async () => {
 const getAssetByCode = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const asset = await pool
       .request()
       .input("input", input)
@@ -71,7 +71,7 @@ const getAssetByCode = async (input) => {
 const getAllAppraisalPlan = async () => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const appraisalPlans = await pool
       .request()
       .query(sqlQueries.appraisal_plans);
@@ -85,7 +85,7 @@ const getAllAppraisalPlan = async () => {
 const getAppraisalPlanByCode = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const appraisalPlan = await pool
       .request()
       .input("input", input)
@@ -99,7 +99,7 @@ const getAppraisalPlanByCode = async (input) => {
 const getAllAppraisalPlanDetail = async () => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const appraisalPlanDetail = await pool
       .request()
       .query(sqlQueries.appraisal_plans_detail);
@@ -113,7 +113,7 @@ const getAllAppraisalPlanDetail = async () => {
 const getAppraisalPlanDetailByCode = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const appraisalPlan = await pool
       .request()
       .input("input", input)
@@ -127,7 +127,7 @@ const getAppraisalPlanDetailByCode = async (input) => {
 const getAllAppraisalDocumentDetail = async () => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const appraisalDocumentDetail = await pool
       .request()
       .query(sqlQueries.appraisal_documents_detail);
@@ -141,7 +141,7 @@ const getAllAppraisalDocumentDetail = async () => {
 const getAppraisalDocumentDetailByCode = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
-    const sqlQueries = await utils.loadSqlQueries("brief");
+    const sqlQueries = await utils.loadSqlQueries("briefs");
     const appraisalDocumentDetail = await pool
       .request()
       .input("input", input)

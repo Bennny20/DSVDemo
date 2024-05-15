@@ -25,5 +25,5 @@ const swaggerDocument = require("./swagger-output.json");
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.listen(config.port, () => {
-  console.log("Server is running on port " + config.port + "... ");
+  console.log("🚀Server is running on port " + config.port + "... ");
 });

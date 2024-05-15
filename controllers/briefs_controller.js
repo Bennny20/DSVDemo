@@ -1,6 +1,6 @@
 "use strict";
 
-const briefData = require("../data/brief");
+const briefData = require("../data/briefs");
 
 const getBriefPoint = async (req, res) => {
   try {
