@@ -5,7 +5,8 @@ INSERT INTO
         is_single,
         is_checked,
         is_show,
-        date_create
+        date_create,
+        file_type
     )
 VALUES
 (
@@ -14,5 +15,6 @@ VALUES
         @is_single,
         @is_checked,
         @is_show,
-        @date_create
+        @date_create,
+        @file_type
     );
