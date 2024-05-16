@@ -3,11 +3,14 @@ SELECT
     dbo.HoSoThamDinh.mo_ta,
     dbo.HoSoThamDinh.muc_dich_tham_dinh,
     dbo.HoSoThamDinh.thoi_gian_tham_dinh,
-    dbo.Employees.employees_name,
-    Employees_1.employees_name,
+    dbo.Employees.employees_name as employee_create,
+    Employees_1.employees_name as employee_approval,
     dbo.HoSoThamDinh.create_date,
     dbo.HoSoThamDinh.da_duyet,
-    dbo.HoSoThamDinh.do_uu_tien_ho_so
+    dbo.HoSoThamDinh.do_uu_tien_ho_so,
+    dbo.PriorityLevels.priority_code,
+    dbo.PriorityLevels.priority_name,
+    dbo.PriorityLevels.descriptions
 FROM
     dbo.HoSoThamDinh
     INNER JOIN dbo.Employees ON dbo.HoSoThamDinh.nguoi_duyet = dbo.Employees.employees_code
