@@ -4,7 +4,7 @@ const utils = require("../utils");
 const config = require("../../config");
 const sql = require("mssql");
 
-const createFile = async (name, url, is_single, is_checked, is_show, date_create) => {
+const createFile = async (name, url, is_single, is_checked, is_show, date_create, file_type) => {
     try {
         const pool = await sql.connect(config.sql);
         const sqlQueries = await utils.loadSqlQueries("files");
@@ -15,6 +15,7 @@ const createFile = async (name, url, is_single, is_checked, is_show, date_create
             .input("is_checked", is_checked)
             .input("is_show", is_show)
             .input("date_create", date_create)
+            .input("file_type", file_type)
             .query(sqlQueries.create_file);
         console.log(file)
         return file.recordset;
