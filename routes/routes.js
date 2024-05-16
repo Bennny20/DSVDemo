@@ -107,7 +107,7 @@ router.post("/upload", upload.single("filename"), async (req, res) => {
         const downloadURL = await getDownloadURL(snapshot.ref);
 
         console.log('File successfully uploaded.');
-        await fileData.createFile(req.file.originalname, downloadURL, 1, 1, 1, dateTime);
+        await fileData.createFile(req.file.originalname, downloadURL, 1, 1, 1, dateTime, req.file.path);
         const file = await fileData.getAllFiles();
         console.log({
             message: 'file uploaded to firebase storage',
