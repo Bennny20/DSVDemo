@@ -53,13 +53,24 @@ const {
 } = priorityLevelController;
 
 router.get('/priority_levels', getAllProrityLevel);
-//------------ API Priority Level ------------
+//------------ API File ------------
 const fileController = require('../controllers/file_controller');
 const {
     getAllFiles
 } = fileController;
 
 router.get('/files', getAllFiles);
+//------------ API Priority Level ------------
+const criteriaController = require('../controllers/internal_credit_criterias_controller');
+const {
+    getAllInternalCreditCriteria,
+    getAllRootInternalCreditCriteria,
+    getAllSubInternalCreditCriteria
+} = criteriaController;
+
+router.get('/criteria/internal_credit_criterias', getAllInternalCreditCriteria);
+router.get('/criteria/root_internal_credit_criterias', getAllRootInternalCreditCriteria);
+router.get('/criteria/sub_internal_credit_criterias', getAllSubInternalCreditCriteria);
 //------------ API File ------------
 const { initializeApp } = require("firebase/app");
 const { getStorage, ref, getDownloadURL, uploadBytesResumable } = require("firebase/storage");
@@ -88,7 +99,7 @@ const storage = getStorage();
 // Setting up multer as a middleware to grab photo uploads
 const upload = multer({ storage: multer.memoryStorage() });
 
-router.post("/upload", upload.single("filename"), async (req, res) => {
+router.post("/files/upload", upload.single("filename"), async (req, res) => {
     try {
         const dateTime = giveCurrentDateTime();
 
@@ -107,7 +118,7 @@ router.post("/upload", upload.single("filename"), async (req, res) => {
         const downloadURL = await getDownloadURL(snapshot.ref);
 
         console.log('File successfully uploaded.');
-        await fileData.createFile(req.file.originalname, downloadURL, 1, 1, 1, dateTime, req.file.path);
+        await fileData.createFile(req.file.originalname, downloadURL, 1, 1, 1, dateTime);
         const file = await fileData.getAllFiles();
         console.log({
             message: 'file uploaded to firebase storage',
