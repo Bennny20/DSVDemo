@@ -1,5 +1,7 @@
 DECLARE @return_value int,
-@outputResult nvarchar(500) EXEC @return_value = [dbo].[OnCalculatePersionPoint] @tuoi = @input_tuoi,
+@outputResult nvarchar(500);
+
+EXEC @return_value = [dbo].[OnCalculatePersionPoint] @tuoi = @input_tuoi,
 @hocvan = @input_hocvan,
 @sohuutaisan = @input_sohuutaisan,
 @thunhapchinh = @input_thunhapchinh,

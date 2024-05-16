@@ -101,6 +101,7 @@ const onCalculatePersionPoint = async (input) => {
     const sqlQueries = await utils.loadSqlQueries("users");
     const userList = await pool
       .request()
+      .input("input_tuoi", input.input_tuoi)
       .input("input_hocvan", input.input_hocvan)
       .input("input_sohuutaisan", input.input_sohuutaisan)
       .input("input_thunhapchinh", input.input_thunhapchinh)
@@ -115,7 +116,7 @@ const onCalculatePersionPoint = async (input) => {
       .input("input_loaihinhsinhsong", input.input_loaihinhsinhsong)
       .input("input_nguoibaolanh", input.input_nguoibaolanh)
       .input("input_quanhetindung", input.input_quanhetindung)
-      .query(sqlQueries.broken_by_code);
+      .query(sqlQueries.calculate_persion_point);
     console.log(userList.recordset);
     return userList.recordset;
   } catch (err) {

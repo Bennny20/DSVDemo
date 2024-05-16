@@ -5,7 +5,7 @@
     "title": "DSV Software API",
     "description": "How does human communication happen? People can express thoughts, needs, and ideas through language (written and spoken), gestures, or facial expressions, right? At the same time, our interaction with computers, apps, and websites requires user interface (UI) components – a screen with a menu and graphical elements, a keyboard, and a mouse. Software or its elements, on the other hand, don’t need a graphical user interface to talk to each other. To communicate and exchange data and functionalities, programs use machine-readable interfaces called APIs. If you ever read tech magazines or blogs, you’ve probably seen the abbreviation API. It sounds solid, but what does it stand for? API stands for Application Programming Interface. This post will explain what APIs are, how they work, and why you should care about them in the first place."
   },
-  "host": "dsvdemo.onrender.com/api",
+  "host": "localhost:8081/api",
   "basePath": "/",
   "schemes": [
     "http",
@@ -84,6 +84,40 @@
             "required": true,
             "schema": {
               "$ref": "#/definitions/Login"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/on_calculate_persion_point": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Tính điểm.",
+        "description": "Tính điểm dựa trên các tiêu chí hiện tại được đề ra sẵn.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Nhập đầy đủ đừng có bỏ xót, nên dùng theo chức năng của giao diện.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/CalculatePersionPoint"
             }
           }
         ],
@@ -423,6 +457,84 @@
             "name": "brief_code",
             "in": "query",
             "description": "Mã của hồ sơ, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/brief/super_detail_by_brief_code": {
+      "get": {
+        "tags": [
+          "Brief"
+        ],
+        "summary": "Danh sách hồ sơ",
+        "description": "Xem danh sách hồ sơ có tại hệ thống có thể dùng cho chức năng tìm theo mã hồ sơ.",
+        "parameters": [
+          {
+            "name": "brief_code",
+            "in": "query",
+            "description": "Mã của hồ sơ, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/brief/super_detail_by_customer_code": {
+      "get": {
+        "tags": [
+          "Brief"
+        ],
+        "summary": "Danh sách hồ sơ",
+        "description": "Xem danh sách hồ sơ có tại hệ thống có thể dùng cho chức năng tìm theo mã khách hàng.",
+        "parameters": [
+          {
+            "name": "customer_code",
+            "in": "query",
+            "description": "Mã của khách hàng, có thể bỏ trống sẽ là lấy tất cả.",
             "type": "string"
           },
           {
@@ -869,6 +981,47 @@
           "type": "string"
         },
         "password": {
+          "type": "string"
+        }
+      }
+    },
+    "CalculatePersionPoint": {
+      "type": "object",
+      "properties": {
+        "tuoi": {
+          "type": "string"
+        },
+        "hoc_van": {
+          "type": "string"
+        },
+        "so_huu_tai_san": {
+          "type": "string"
+        },
+        "thu_nhap_chinh": {
+          "type": "string"
+        },
+        "chi_tieu_hang_thang": {
+          "type": "string"
+        },
+        "nghe_nghiep": {
+          "type": "string"
+        },
+        "thoi_gian_lam_viec": {
+          "type": "string"
+        },
+        "thu_nhap_nguoi_dong_trach_nhiem": {
+          "type": "string"
+        },
+        "thoi_gian_sinh_song": {
+          "type": "string"
+        },
+        "nguoi_phu_thuoc": {
+          "type": "string"
+        },
+        "loai_hinh_sinh_song": {
+          "type": "string"
+        },
+        "quan_he_tin_dung": {
           "type": "string"
         }
       }

@@ -10,12 +10,15 @@ const router = express.Router();
 const userControll = require('../controllers/users_controller');
 const { getAllEmployees,
     getAllCustomers,
-    getAllBrokers } = userControll;
+    getAllBrokers,
+    onCalculatePersionPoint,
+    login } = userControll;
 
-router.post('/auth/login', userControll.login);
+router.post('/auth/login', login);
 
 router.get('/user/employees', getAllEmployees);   // Get all employees from the database and return them as a response to an HTTP request
 router.get('/user/customers', getAllCustomers);
+router.get('/user/on_calculate_persion_point', onCalculatePersionPoint);
 router.get('/user/brokers', getAllBrokers);
 
 //------------ API BRIEF ------------
@@ -25,10 +28,14 @@ const { getBriefPoint,
     getAllAsset,
     getAllAppraisalPlan,
     getAllAppraisalDocumentDetail,
-    getAllAppraisalPlanDetail } = briefControll;
+    getAllAppraisalPlanDetail,
+    SuperDetailByBriefCode,
+    SuperDetailByCustomerCode } = briefControll;
 
 router.get('/brief/briefs_point', getBriefPoint);
 router.get('/brief/briefs', getAllBrief);
+router.get('/brief/super_detail_by_brief_code', SuperDetailByBriefCode);
+router.get('/brief/super_detail_by_customer_code', SuperDetailByCustomerCode);
 router.get('/assets', getAllAsset);
 router.get('/appraisal_plans', getAllAppraisalPlan);
 router.get('/appraisal_plans_detail', getAllAppraisalPlanDetail);

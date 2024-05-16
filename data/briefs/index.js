@@ -152,6 +152,48 @@ const getAppraisalDocumentDetailByCode = async (input) => {
   }
 };
 
+const SuperDetailByBriefCode = async (input) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .input("input", input)
+      .query(sqlQueries.super_detail_by_brief_code);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const SuperDetailByCustomerCode = async (input) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .input("input", input)
+      .query(sqlQueries.super_detail_by_customer_code);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const getAllSuperDetail = async () => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .query(sqlQueries.all_super_detail);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+
 module.exports = {
   getBriefPoint,
   getAllBrief,
@@ -164,4 +206,7 @@ module.exports = {
   getAppraisalPlanByCode,
   getAppraisalPlanDetailByCode,
   getAppraisalDocumentDetailByCode,
+  SuperDetailByBriefCode,
+  SuperDetailByCustomerCode,
+  getAllSuperDetail
 };
