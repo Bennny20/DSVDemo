@@ -131,6 +131,40 @@
         }
       }
     },
+    "/user/on_save_calculate_persion_point": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Lưu dữ liệu tính điểm.",
+        "description": "Tính điểm dựa trên các tiêu chí hiện tại được đề ra sẵn và lưu trữ lại.",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Nhập đầy đủ đừng có bỏ xót, nên dùng theo chức năng của giao diện.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SaveCalculatePersionPoint"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/user/employees": {
       "get": {
         "tags": [
@@ -988,6 +1022,50 @@
     "CalculatePersionPoint": {
       "type": "object",
       "properties": {
+        "tuoi": {
+          "type": "string"
+        },
+        "hoc_van": {
+          "type": "string"
+        },
+        "so_huu_tai_san": {
+          "type": "string"
+        },
+        "thu_nhap_chinh": {
+          "type": "string"
+        },
+        "chi_tieu_hang_thang": {
+          "type": "string"
+        },
+        "nghe_nghiep": {
+          "type": "string"
+        },
+        "thoi_gian_lam_viec": {
+          "type": "string"
+        },
+        "thu_nhap_nguoi_dong_trach_nhiem": {
+          "type": "string"
+        },
+        "thoi_gian_sinh_song": {
+          "type": "string"
+        },
+        "nguoi_phu_thuoc": {
+          "type": "string"
+        },
+        "loai_hinh_sinh_song": {
+          "type": "string"
+        },
+        "quan_he_tin_dung": {
+          "type": "string"
+        }
+      }
+    },
+    "SaveCalculatePersionPoint": {
+      "type": "object",
+      "properties": {
+        "ma_ho_so": {
+          "type": "string"
+        },
         "tuoi": {
           "type": "string"
         },

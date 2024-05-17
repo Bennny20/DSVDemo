@@ -12,6 +12,7 @@ const { getAllEmployees,
     getAllCustomers,
     getAllBrokers,
     onCalculatePersionPoint,
+    onSaveCalculatePersionPoint,
     login } = userControll;
 
 router.post('/auth/login', login);
@@ -19,6 +20,7 @@ router.post('/auth/login', login);
 router.get('/user/employees', getAllEmployees);   // Get all employees from the database and return them as a response to an HTTP request
 router.get('/user/customers', getAllCustomers);
 router.post('/user/on_calculate_persion_point', onCalculatePersionPoint);
+router.post('/user/on_save_calculate_persion_point', onSaveCalculatePersionPoint);
 router.get('/user/brokers', getAllBrokers);
 
 //------------ API BRIEF ------------

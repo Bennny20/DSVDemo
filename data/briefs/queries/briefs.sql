@@ -10,7 +10,7 @@ SELECT
     dbo.HoSoThamDinh.do_uu_tien_ho_so,
     dbo.PriorityLevels.priority_code,
     dbo.PriorityLevels.priority_name,
-    dbo.PriorityLevels.descriptions
+    dbo.PriorityLevels.descriptions as descriptions_priority_levels
 FROM
     dbo.HoSoThamDinh
     INNER JOIN dbo.Employees ON dbo.HoSoThamDinh.nguoi_duyet = dbo.Employees.employees_code
