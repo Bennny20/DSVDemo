@@ -245,12 +245,40 @@
         }
       }
     },
-    "/files/upload": {
+    "/files/upload_firebase": {
       "post": {
         "tags": [
           "File"
         ],
-        "summary": "Thêm mới tệp tài liệu",
+        "summary": "Thêm mới tệp tài liệu bằng FireBase",
+        "description": "Thêm mới tệp tài liệu tại hệ thống .",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "filename",
+            "in": "formData",
+            "description": "File.",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/files/upload_cloundinary": {
+      "post": {
+        "tags": [
+          "File"
+        ],
+        "summary": "Thêm mới tệp tài liệu bằng Cloudinary",
         "description": "Thêm mới tệp tài liệu tại hệ thống .",
         "consumes": [
           "multipart/form-data"
