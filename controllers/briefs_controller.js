@@ -119,6 +119,34 @@ const SuperDetailByCustomerCode = async (req, res) => {
   }
 };
 
+const getAssetDetail = async (req, res) => {
+  try {
+    const customer_code = req.param("customer_code");
+    const asset_code = req.param("asset_code");
+    const asset_type_code = req.param("asset_type_code");
+    let data;
+    if (customer_code != undefined)
+      data = await briefData.getAllAssetDetailByCustomer(
+        customer_code
+      );
+    else if (customer_code != undefined)
+      data = await briefData.getAssetDetailByCode(
+        asset_code
+      );
+    else if (customer_code != undefined)
+      data = await briefData.getAllAssetDetailByType(
+        asset_type_code
+      );
+    else {
+      data = await briefData.getAllAssetDetail();
+    }
+    res.status(200).json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+};
+
 module.exports = {
   getBriefPoint,
   getAllBrief,
@@ -127,5 +155,6 @@ module.exports = {
   getAllAppraisalDocumentDetail,
   getAllAppraisalPlanDetail,
   SuperDetailByBriefCode,
-  SuperDetailByCustomerCode
+  SuperDetailByCustomerCode,
+  getAssetDetail
 };

@@ -32,13 +32,15 @@ const { getBriefPoint,
     getAllAppraisalDocumentDetail,
     getAllAppraisalPlanDetail,
     SuperDetailByBriefCode,
-    SuperDetailByCustomerCode } = briefControll;
+    SuperDetailByCustomerCode,
+    getAssetDetail } = briefControll;
 
 router.get('/brief/briefs_point', getBriefPoint);
 router.get('/brief/briefs', getAllBrief);
 router.get('/brief/super_detail_by_brief_code', SuperDetailByBriefCode);
 router.get('/brief/super_detail_by_customer_code', SuperDetailByCustomerCode);
 router.get('/assets', getAllAsset);
+router.get('/assets/assets_detail', getAssetDetail);
 router.get('/appraisal_plans', getAllAppraisalPlan);
 router.get('/appraisal_plans_detail', getAllAppraisalPlanDetail);
 router.get('/appraisal_documents_detail', getAllAppraisalDocumentDetail);

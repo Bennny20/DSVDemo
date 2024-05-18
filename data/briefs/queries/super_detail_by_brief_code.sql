@@ -105,7 +105,7 @@ SELECT
     dbo.TaiSan.[ten_tai_san] as ten_tai_san,
     dbo.TaiSan.[mo_ta] as mo_ta_tai_san,
     dbo.TaiSan.[ngay_dinh_gia] as ngay_dinh_gia_tai_san,
-    dbo.TaiSan.[chu_so_huu] as chu_so_huu_tai_san,
+    -- dbo.TaiSan.[chu_so_huu] as chu_so_huu_tai_san,
     -- dbo.TaiSan.[loai_tai_san] as loai_tai_san,
     dbo.TaiSan.[is_follow] as is_follow_tai_san,
     -- dbo.TaiSan.[nguoi_them] as nguoi_them_tai_san,
@@ -132,7 +132,13 @@ SELECT
     khach_hang.[contact_person_telephone] as customer_contact_person_telephone,
     khach_hang.[is_working] as customer_is_working,
     khach_hang.[is_follow] as customer_is_follow,
-    khach_hang.[create_date] as customer_create_date
+    khach_hang.[create_date] as customer_create_date,
+    -- loai_khach_hang.
+    -- loai_khach_hang.[customer_type_code],
+    loai_khach_hang.[customer_type_name],
+    loai_khach_hang.[descriptions] -- loai_khach_hang.[is_defaulit],
+    -- loai_khach_hang.[is_follow],
+    -- loai_khach_hang.[create_date]
 FROM
     dbo.HoSoThamDinh
     INNER JOIN dbo.Employees AS nguoi_duyet ON dbo.HoSoThamDinh.nguoi_duyet = nguoi_duyet.employees_code
@@ -144,5 +150,6 @@ FROM
     LEFT JOIN dbo.ChiTietHoSoThamDinh ON dbo.HoSoThamDinh.ma_ho_so = dbo.ChiTietHoSoThamDinh.ma_ho_so
     LEFT JOIN dbo.TaiSan ON dbo.ChiTietHoSoThamDinh.ma_tai_san = dbo.TaiSan.ma_tai_san
     LEFT JOIN dbo.Customer AS khach_hang ON dbo.TaiSan.chu_so_huu = khach_hang.customer_code
+    INNER JOIN [DSGAppraisalSoftwareX].[dbo].[CustomerTypes] AS loai_khach_hang ON khach_hang.customer_type = loai_khach_hang.customer_type_code
 WHERE
     dbo.HoSoThamDinh.ma_ho_so = @input;

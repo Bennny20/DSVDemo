@@ -193,6 +193,57 @@ const getAllSuperDetail = async () => {
   }
 };
 
+const getAllAssetDetail = async () => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .query(sqlQueries.assets_detail);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const getAllAssetDetailByCustomer = async () => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .query(sqlQueries.assets_detail_by_customer_code);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const getAllAssetDetailByType = async () => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .query(sqlQueries.assets_detail_by_type);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const getAssetDetailByCode = async () => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .query(sqlQueries.assets_detail_by_code);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
 
 module.exports = {
   getBriefPoint,
@@ -208,5 +259,9 @@ module.exports = {
   getAppraisalDocumentDetailByCode,
   SuperDetailByBriefCode,
   SuperDetailByCustomerCode,
-  getAllSuperDetail
+  getAllSuperDetail,
+  getAllAssetDetail,
+  getAllAssetDetailByType,
+  getAssetDetailByCode,
+  getAllAssetDetailByCustomer
 };
