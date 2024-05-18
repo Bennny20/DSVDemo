@@ -23,4 +23,5 @@ FROM
     INNER JOIN [DSGAppraisalSoftwareX].[dbo].[Customer] AS khach_hang ON [dbo].[TaiSan].chu_so_huu = khach_hang.customer_code
     INNER JOIN [DSGAppraisalSoftwareX].[dbo].[CustomerTypes] AS loai_khach_hang ON khach_hang.customer_type = loai_khach_hang.customer_type_code
 WHERE
-    khach_hang.customer_code = @input;
+    [dbo].[TaiSan].ma_tai_san = @input_asset_code
+    AND [dbo].[TaiSan].chu_so_huu = @input_customer_code;

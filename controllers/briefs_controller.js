@@ -124,20 +124,43 @@ const getAssetDetail = async (req, res) => {
     const customer_code = req.param("customer_code");
     const asset_code = req.param("asset_code");
     const asset_type_code = req.param("asset_type_code");
+    console.log(127, customer_code, asset_code, asset_type_code)
     let data;
-    if (customer_code != undefined)
+    if (customer_code != undefined &&
+      asset_type_code == undefined &&
+      asset_code == undefined)
       data = await briefData.getAllAssetDetailByCustomer(
         customer_code
       );
-    else if (customer_code != undefined)
-      data = await briefData.getAssetDetailByCode(
-        asset_code
-      );
-    else if (customer_code != undefined)
+    if (asset_type_code != undefined &&
+      asset_code == undefined &&
+      customer_code == undefined)
       data = await briefData.getAllAssetDetailByType(
         asset_type_code
       );
-    else {
+    if (asset_code != undefined ||
+      (customer_code != undefined &&
+        asset_code != undefined) ||
+      (customer_code != undefined &&
+        asset_code != undefined &&
+        asset_type_code != undefined))
+      data = await briefData.getAssetDetailByCode(
+        asset_code
+      );
+    // if (customer_code != undefined && asset_code != undefined)
+    //   data = await briefData.getAssetDetailByCode(
+    //     asset_code
+    //   );
+    if (customer_code != undefined &&
+      asset_type_code != undefined &&
+      asset_code == undefined)
+      data = await briefData.getAssetDetailByCustomerXAssetType(
+        customer_code,
+        asset_type_code
+      );
+    if ((asset_type_code == undefined &&
+      asset_code == undefined &&
+      customer_code == undefined)) {
       data = await briefData.getAllAssetDetail();
     }
     res.status(200).json(data);

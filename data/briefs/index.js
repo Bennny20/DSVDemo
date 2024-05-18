@@ -206,12 +206,13 @@ const getAllAssetDetail = async () => {
   }
 };
 
-const getAllAssetDetailByCustomer = async () => {
+const getAllAssetDetailByCustomer = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
     const sqlQueries = await utils.loadSqlQueries("briefs");
     const data = await pool
       .request()
+      .input("input", input)
       .query(sqlQueries.assets_detail_by_customer_code);
     return data.recordset;
   } catch (err) {
@@ -219,12 +220,13 @@ const getAllAssetDetailByCustomer = async () => {
   }
 };
 
-const getAllAssetDetailByType = async () => {
+const getAllAssetDetailByType = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
     const sqlQueries = await utils.loadSqlQueries("briefs");
     const data = await pool
       .request()
+      .input("input", input)
       .query(sqlQueries.assets_detail_by_type);
     return data.recordset;
   } catch (err) {
@@ -232,13 +234,43 @@ const getAllAssetDetailByType = async () => {
   }
 };
 
-const getAssetDetailByCode = async () => {
+const getAssetDetailByCode = async (input) => {
   try {
     const pool = await sql.connect(config.sql);
     const sqlQueries = await utils.loadSqlQueries("briefs");
     const data = await pool
       .request()
+      .input("input", input)
       .query(sqlQueries.assets_detail_by_code);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const getAssetDetailByCustomerXAsset = async (input_customer_code, input_asset_code) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .input("input_asset_code", input_asset_code)
+      .input("input_customer_code", input_customer_code)
+      .query(sqlQueries.asset_detail_by_customer_vs_asset_code);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+const getAssetDetailByCustomerXAssetType = async (input_customer_code, input_asset_type_code) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .input("input_asset_type_code", input_asset_type_code)
+      .input("input_customer_code", input_customer_code)
+      .query(sqlQueries.asset_detail_by_customer_vs_asset_type_code);
     return data.recordset;
   } catch (err) {
     console.log("Error: ", err);
@@ -263,5 +295,7 @@ module.exports = {
   getAllAssetDetail,
   getAllAssetDetailByType,
   getAssetDetailByCode,
-  getAllAssetDetailByCustomer
+  getAllAssetDetailByCustomer,
+  getAssetDetailByCustomerXAsset,
+  getAssetDetailByCustomerXAssetType
 };
