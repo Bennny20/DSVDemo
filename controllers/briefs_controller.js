@@ -172,7 +172,7 @@ const getAssetDetail = async (req, res) => {
 
 const approvalBrief = async (req, res) => {
   try {
-    const brief_code = req.param("customer_code");
+    const brief_code = req.param("ma_ho_so");
     let data;
     if (brief_code != undefined) {
       let result = await briefData.approvalBrief(
@@ -202,7 +202,7 @@ const approvalBrief = async (req, res) => {
 
 const disapprovalBrief = async (req, res) => {
   try {
-    const brief_code = req.param("customer_code");
+    const brief_code = req.param("ma_ho_so");
     let data;
     if (brief_code != undefined) {
       let result = await briefData.disapprovalBrief(
