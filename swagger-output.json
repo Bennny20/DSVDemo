@@ -59,9 +59,38 @@
     {
       "name": "Criteria",
       "description": "Các thông tin tiêu chí tín dụng."
+    },
+    {
+      "name": "Approve",
+      "description": "Xét duyệt các hồ sơ."
     }
   ],
   "paths": {
+    "/brief/aproval": {
+      "post": {
+        "tags": [
+          "Approve"
+        ],
+        "summary": "Xét duyệt hồ sơ",
+        "description": "Xét duyệt hồ sơ hiện có tại hệ thống",
+        "parameters": [
+          {
+            "name": "ma_chi_tiet_ho_so",
+            "in": "query",
+            "description": "Mã chi tiết của hồ sơ.",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/auth/login": {
       "post": {
         "tags": [
@@ -307,6 +336,45 @@
           "User"
         ],
         "summary": "Danh sách khách hàng",
+        "description": "Xem danh sách khách hàng có tại hệ thống có thể dùng cho chức năng tìm theo mã khách hàng.",
+        "parameters": [
+          {
+            "name": "customer_code",
+            "in": "query",
+            "description": "Mã của khách hàng, có thể bỏ trống sẽ là lấy tất cả.",
+            "type": "string"
+          },
+          {
+            "name": "pageNumber",
+            "in": "query",
+            "description": "Số trang để phân trang. Nếu không được cung cấp, giá trị mặc định và số trang bắt đầu từ 1.",
+            "default": 1,
+            "type": "integer"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Kích thước của một trang. Nếu không được cung cấp, giá trị mặc định là  20.",
+            "default": 20,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/user/customer_full_information": {
+      "get": {
+        "tags": [
+          "User"
+        ],
+        "summary": "Danh sách khách hàng chi tiết",
         "description": "Xem danh sách khách hàng có tại hệ thống có thể dùng cho chức năng tìm theo mã khách hàng.",
         "parameters": [
           {

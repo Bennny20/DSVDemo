@@ -52,6 +52,20 @@ const getAllCustomers = async (req, res) => {
   }
 };
 
+const getAllCustomerFull = async (req, res) => {
+  try {
+    const customer_code = req.param("customer_code");
+    let data;
+    if (customer_code != undefined)
+      data = await userData.getCustomerFullByCode(customer_code);
+    else data = await userData.getAllCustomerFull();
+    res.status(200).json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+};
+
 const getAllBrokers = async (req, res) => {
   try {
     const broker_code = req.param("broker_code");
@@ -156,5 +170,6 @@ module.exports = {
   getAllCustomers,
   getAllBrokers,
   onCalculatePersionPoint,
-  onSaveCalculatePersionPoint
+  onSaveCalculatePersionPoint,
+  getAllCustomerFull
 };

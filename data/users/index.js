@@ -69,6 +69,31 @@ const getCustomerByCode = async (input) => {
   }
 };
 
+const getAllCustomerFull = async () => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("users");
+    const userList = await pool.request().query(sqlQueries.customer_full);
+    return userList.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const getCustomerFullByCode = async (input) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("users");
+    const userList = await pool
+      .request()
+      .input("input", input)
+      .query(sqlQueries.customer_full_by_code);
+    return userList.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
 const getAllBrokers = async () => {
   try {
     const pool = await sql.connect(config.sql);
@@ -163,5 +188,7 @@ module.exports = {
   getCustomerByCode,
   getBrokersByCode,
   onCalculatePersionPoint,
-  onSaveCalculatePersionPoint
+  onSaveCalculatePersionPoint,
+  getAllCustomerFull,
+  getCustomerFullByCode
 };
