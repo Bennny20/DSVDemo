@@ -170,6 +170,67 @@ const getAssetDetail = async (req, res) => {
   }
 };
 
+const approvalBrief = async (req, res) => {
+  try {
+    const brief_code = req.param("customer_code");
+    let data;
+    if (brief_code != undefined) {
+      let result = await briefData.approvalBrief(
+        brief_code
+      );
+      if (result) {
+        data = await briefData.SuperDetailByBriefCode(
+          brief_code
+        );
+      } else {
+        data = ({
+          code: -1,
+          message: "Không thể xét duyệt đối với mã hồ sơ này.",
+        });
+      }
+    }
+    else data = ({
+      code: -1,
+      message: "Vui lòng hãy nhập ký tự. Không đươc bỏ trống",
+    });
+    res.status(200).json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+};
+
+const disapprovalBrief = async (req, res) => {
+  try {
+    const brief_code = req.param("customer_code");
+    let data;
+    if (brief_code != undefined) {
+      let result = await briefData.disapprovalBrief(
+        brief_code
+      );
+      if (result) {
+        data = await briefData.SuperDetailByBriefCode(
+          brief_code
+        );
+      } else {
+        data = ({
+          code: -1,
+          message: "Không thể xét duyệt đối với mã hồ sơ này.",
+        });
+      }
+    }
+    else data = ({
+      code: -1,
+      message: "Vui lòng hãy nhập ký tự. Không đươc bỏ trống",
+    });
+    res.status(200).json(data);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: err });
+  }
+};
+
+
 module.exports = {
   getBriefPoint,
   getAllBrief,
@@ -179,5 +240,7 @@ module.exports = {
   getAllAppraisalPlanDetail,
   SuperDetailByBriefCode,
   SuperDetailByCustomerCode,
-  getAssetDetail
+  getAssetDetail,
+  approvalBrief,
+  disapprovalBrief
 };

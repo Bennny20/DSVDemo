@@ -277,6 +277,34 @@ const getAssetDetailByCustomerXAssetType = async (input_customer_code, input_ass
   }
 };
 
+const approvalBrief = async (input) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .input("input", input)
+      .query(sqlQueries.approval_brief);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
+const disapprovalBrief = async (input) => {
+  try {
+    const pool = await sql.connect(config.sql);
+    const sqlQueries = await utils.loadSqlQueries("briefs");
+    const data = await pool
+      .request()
+      .input("input", input)
+      .query(sqlQueries.disapproval_brief);
+    return data.recordset;
+  } catch (err) {
+    console.log("Error: ", err);
+  }
+};
+
 module.exports = {
   getBriefPoint,
   getAllBrief,
@@ -297,5 +325,7 @@ module.exports = {
   getAssetDetailByCode,
   getAllAssetDetailByCustomer,
   getAssetDetailByCustomerXAsset,
-  getAssetDetailByCustomerXAssetType
+  getAssetDetailByCustomerXAssetType,
+  approvalBrief,
+  disapprovalBrief
 };

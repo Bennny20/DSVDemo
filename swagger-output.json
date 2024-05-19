@@ -66,7 +66,7 @@
     }
   ],
   "paths": {
-    "/brief/aproval": {
+    "/brief/approval": {
       "post": {
         "tags": [
           "Approve"
@@ -75,7 +75,7 @@
         "description": "Xét duyệt hồ sơ hiện có tại hệ thống",
         "parameters": [
           {
-            "name": "ma_chi_tiet_ho_so",
+            "name": "ma_ho_so",
             "in": "query",
             "description": "Mã chi tiết của hồ sơ.",
             "type": "string"

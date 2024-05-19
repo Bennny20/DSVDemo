@@ -35,7 +35,9 @@ const { getBriefPoint,
     getAllAppraisalPlanDetail,
     SuperDetailByBriefCode,
     SuperDetailByCustomerCode,
-    getAssetDetail } = briefControll;
+    getAssetDetail,
+    approvalBrief,
+    disapprovalBrief } = briefControll;
 
 router.get('/brief/briefs_point', getBriefPoint);
 router.get('/brief/briefs', getAllBrief);
@@ -46,6 +48,9 @@ router.get('/assets/assets_detail', getAssetDetail);
 router.get('/appraisal_plans', getAllAppraisalPlan);
 router.get('/appraisal_plans_detail', getAllAppraisalPlanDetail);
 router.get('/appraisal_documents_detail', getAllAppraisalDocumentDetail);
+
+router.get('/brief/approval', approvalBrief);
+router.get('/brief/dis_approval', disapprovalBrief);
 //------------ API CATEGORIES ------------
 const categorieController = require('../controllers/categories_controller');
 const { getAllAppraisalPlanTypes,
