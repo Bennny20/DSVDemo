@@ -63,9 +63,73 @@
     {
       "name": "Approve",
       "description": "Xét duyệt các hồ sơ."
+    },
+    {
+      "name": "Trust Contract",
+      "description": "Xét duyệt các hồ sơ."
     }
   ],
   "paths": {
+    "/trust_contracts/trust_contracts": {
+      "get": {
+        "tags": [
+          "Trust Contract"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/trust_contracts/loan_agreements": {
+      "get": {
+        "tags": [
+          "Trust Contract"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/trust_contracts/customer": {
+      "get": {
+        "tags": [
+          "Trust Contract"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/trust_contracts/group_customer": {
+      "get": {
+        "tags": [
+          "Trust Contract"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/brief/approval": {
       "post": {
         "tags": [

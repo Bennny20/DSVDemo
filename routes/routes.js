@@ -101,7 +101,18 @@ initializeApp(firebaseConfig);
 // Setting up multer as a middleware to grab photo uploads
 router.post("/files/upload_firebase", upload.single("filename"), fileController.uploadByFireBase);
 router.post("/files/upload_cloundinary", upload.single("filename"), fileController.uploadByCloudinary);
+//--------------------API Trust Contract ------------
+const trustContractController = require('../controllers/trust_contract_controller');
+const { getAllCustomer,
+    getAllLoanAgreement,
+    getAllGroupCustomer,
+    getAllTrustContract
+} = trustContractController;
 
+router.get('/trust_contracts/trust_contracts', getAllTrustContract);
+router.get('/trust_contracts/loan_agreements', getAllLoanAgreement);
+router.get('/trust_contracts/group_customer', getAllGroupCustomer);
+router.get('/trust_contracts/customer', getAllCustomer);
 //-------------------
 module.exports = {
     router: router
